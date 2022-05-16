@@ -1,0 +1,91 @@
+<!--
+CA NE MARCHE PAS ENCORE VU QUE LA BIBLIOTHEQUE N'EST PAS PRISE EN COMPTE PTDRRRRR
+JE VAIS ESSAYER DE METTRE A JOUR LE CODE EN LOCAL AVANT DE L'ADD ICI
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Simulation</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="main.css">
+	</head>
+	<body>
+
+		<!-- Import maps polyfill -->
+		<!-- Remove this when import maps will be widely supported -->
+		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "../build/three.module.js"
+				}
+			}
+		</script>
+
+		<script type="module">
+
+			import * as THREE from 'three';
+
+			let camera, scene, renderer;
+      let box;
+      var c;
+
+
+			init();
+			animate();
+
+			function init() {
+
+				camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 5000 );
+
+
+				scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xffffff);
+
+        const texture_box = new THREE.TextureLoader().load( 'textures/etoile.webp' );
+        const geometry_box = new THREE.BoxGeometry( 30 ,30 );
+        const material_box = new THREE.MeshPhongMaterial( { map: texture_box } );
+        box = new THREE.Mesh( geometry_box, material_box );
+        box.position.set(0,0,10);
+        scene.add( box );
+
+
+
+
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				document.body.appendChild( renderer.domElement );
+
+				//
+
+				window.addEventListener( 'resize', onWindowResize );
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+			/*	mesh.rotation.x += 0.005;
+				mesh.rotation.y += 0.01;*/
+
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
+
+	</body>
+</html>

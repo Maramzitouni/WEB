@@ -1,0 +1,138 @@
+#mainCompany {
+    height: 87.2vh;
+    display: flex;
+    flex-flow: row nowrap;
+    overflow: auto;
+}
+
+#mainCompany > section {
+    flex-grow: 1;
+    background-color: rgb(222, 222, 222);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mainCompany > section > #card {
+    width: 95%;
+    height: 95%;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid rgb(185, 185, 185);
+    display: flex;
+    flex-flow: row nowrap
+}
+
+#mainCompany > section > #card > div {
+    flex-basis: 50%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+#mainCompany #companyForm {
+ width: auto;
+ height: auto;
+}
+
+#mainCompany #companyPay > div {
+    margin: 15px 0;
+    padding: 15px;
+    border: 3px solid red;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+body{
+   margin: 0;
+}
+
+.sidebar{
+   width: 250px;
+   background: #111;
+   padding-top: 50px;
+}
+
+.sidebar h1{
+   display: block;
+   padding: 10px 20px;
+   color: #fff;
+   text-decoration: none;
+   font-family: "Rubik";
+   letter-spacing: 2px;
+   font-weight: 400;
+   margin: 0;
+   font-size: 25px;
+   text-transform: uppercase;
+}
+
+.sidebar a{
+   display: block;
+   padding: 10px 20px;
+   color: #bbb;
+   text-decoration: none;
+   font-family: "Rubik";
+   letter-spacing: 2px;
+}
+
+.sidebar a:hover{
+   color: #fff;
+   margin-left: 20px;
+   transition: 0.4s;
+}
+
+/* -------------  CSS Loader  ----------- */
+
+.overlay{
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	z-index: 10;
+	opacity: 0.7;
+}
+.loader{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	border:10px solid #333;
+	position: relative;
+	margin: 0 auto;
+	top:30%;
+	animation:loader 2s linear infinite;
+}
+@keyframes loader{
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		transform:rotate(360deg);
+	}
+}
+.loader:after{
+	content: "";
+    width: 35px;
+    height: 35px;
+    background: #333;
+    position: absolute;
+    border-radius: 50%;
+    top: -20px;
+    left: 55px;
+}
+.loader:before{
+	content: "";
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #333;
+    position: absolute;
+    transform: rotate(-90deg);
+    top: -10px;
+    left: 39px;
+
+}
+
+/* --------- CSS Loader End Here ------------*/
